@@ -12,3 +12,18 @@ java_binary(
         "@maven//:org_slf4j_slf4j_simple",
     ],
 )
+
+# Tests
+java_library(
+    name = "core_tests",
+    srcs = glob(["src/test/**/*.java"]),
+    deps = [],
+)
+
+java_test(
+    name = "core",
+    size = "small",
+    runtime_deps = [
+        ":core_tests"
+    ]
+)
