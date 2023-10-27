@@ -18,7 +18,7 @@ java_library(
 )
 
 java_binary(
-    name = "api",
+    name = "run_local",
     main_class = "api.Api",
     runtime_deps = [
         ":api_lib",
