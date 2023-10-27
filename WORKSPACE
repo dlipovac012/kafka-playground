@@ -60,12 +60,6 @@ http_archive(
     ],
 )
 
-#load("@bazel_tools//tools/jdk:local_java_repository.bzl", "local_java_repository")
-#local_java_repository(
-#    name = "jdk17_nix",
-#    version = "17",
-#    java_home  = "/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home",
-#)
 
 # MAVEN
 
