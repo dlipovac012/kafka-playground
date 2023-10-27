@@ -1,0 +1,8 @@
+build --java_language_version=17
+
+build --experimental_strict_java_deps=strict
+build --explicit_java_test_deps
+
+# Make sure we get something helpful when tests fail
+test --verbose_failures
+test --test_output=errors

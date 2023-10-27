@@ -10,6 +10,8 @@ java_binary(
         "@maven//:junit_junit",
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_slf4j_slf4j_simple",
+
+        # Spring Boot
     ],
 )
 

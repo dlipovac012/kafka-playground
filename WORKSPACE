@@ -60,6 +60,13 @@ http_archive(
     ],
 )
 
+#load("@bazel_tools//tools/jdk:local_java_repository.bzl", "local_java_repository")
+#local_java_repository(
+#    name = "jdk17_nix",
+#    version = "17",
+#    java_home  = "/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home",
+#)
+
 # MAVEN
 
 RULES_JVM_EXTERNAL_TAG = "4.5"
@@ -88,6 +95,18 @@ maven_install(
         "junit:junit:4.12",
         "org.slf4j:slf4j-api:2.0.9",
         "org.slf4j:slf4j-simple:2.0.9",
+
+        # Spring Boot
+        "org.springframework.boot:spring-boot-starter:3.1.5",
+        "org.springframework.boot:spring-boot-autoconfigure:3.1.5",
+        "org.springframework.boot:spring-boot-test-autoconfigure:3.1.5",
+        "org.springframework.boot:spring-boot-test:3.1.5",
+        "org.springframework.boot:spring-boot:3.1.5",
+        "org.springframework.boot:spring-boot-starter-web:3.1.5",
+        "org.springframework:spring-beans:6.0.13",
+        "org.springframework:spring-context:6.0.13",
+        "org.springframework:spring-test:6.0.13",
+        "org.springframework:spring-web:6.0.13",
     ],
     repositories = [
         "https://maven.google.com",
