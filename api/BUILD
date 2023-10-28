@@ -14,6 +14,10 @@ java_library(
         "@maven//:org_springframework_spring_context",
         "@maven//:org_springframework_spring_test",
         "@maven//:org_springframework_spring_web",
+        "@maven//:com_zaxxer_HikariCP",
+    ],
+    resources = [
+        "//api/src/main/resources:application",
     ],
 )
 

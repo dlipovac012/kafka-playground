@@ -90,6 +90,9 @@ maven_install(
         "org.slf4j:slf4j-api:2.0.9",
         "org.slf4j:slf4j-simple:2.0.9",
 
+        # HikariCP JDBC
+        "com.zaxxer:HikariCP:5.0.1",
+
         # Spring Boot
         "org.springframework.boot:spring-boot-starter:3.1.5",
         "org.springframework.boot:spring-boot-autoconfigure:3.1.5",
