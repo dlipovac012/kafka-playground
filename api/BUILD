@@ -3,7 +3,11 @@ load("@rules_java//java:defs.bzl", "java_binary")
 java_library(
     name = "api_lib",
     srcs = glob(["src/main/**/*.java"]),
+    resources = [
+        "//api/src/main/resources:application",
+    ],
     deps = [
+        "@maven//:com_zaxxer_HikariCP",
         "@maven//:org_springframework_boot_spring_boot",
         "@maven//:org_springframework_boot_spring_boot_autoconfigure",
         "@maven//:org_springframework_boot_spring_boot_starter",
@@ -14,10 +18,6 @@ java_library(
         "@maven//:org_springframework_spring_context",
         "@maven//:org_springframework_spring_test",
         "@maven//:org_springframework_spring_web",
-        "@maven//:com_zaxxer_HikariCP",
-    ],
-    resources = [
-        "//api/src/main/resources:application",
     ],
 )
 

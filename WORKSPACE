@@ -60,7 +60,6 @@ http_archive(
     ],
 )
 
-
 # MAVEN
 
 RULES_JVM_EXTERNAL_TAG = "4.5"
