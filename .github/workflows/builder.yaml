@@ -1,5 +1,5 @@
   name: Mandatory requirements
-  run-name: ${{ github.event.head_commit.message }} - ${{ github.sha }}
+  run-name: ${{ github.event.head_commit.message }}
 
   on: [ push ]
   jobs:
