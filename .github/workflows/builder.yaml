@@ -1,4 +1,4 @@
-  name: Builder
+  name: Mandatory requirements
   run-name: ${{ github.event.head_commit.message }} - ${{ github.sha }}
 
   on: [ push ]
