@@ -1,10 +1,10 @@
 load("@rules_java//java:defs.bzl", "java_binary")
 
 java_library(
-    name = "api_lib",
+    name = "raven_lib",
     srcs = glob(["src/main/**/*.java"]),
     resources = [
-        "//api/src/main/resources:application",
+        "//raven/src/main/resources:application",
     ],
     deps = [
         "@maven//:com_zaxxer_HikariCP",
@@ -19,12 +19,32 @@ java_library(
         "@maven//:org_springframework_spring_test",
         "@maven//:org_springframework_spring_web",
     ],
+    visibility = ["//visibility:private"]
+)
+
+java_library(
+    name = "raven_test_lib",
+    srcs = glob(["src/test/**/*.java"]),
+    deps = [
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_slf4j_slf4j_simple",
+    ],
+    testonly = True,
+    visibility = ["//visibility:private"],
 )
 
 java_binary(
     name = "run_local",
     main_class = "api.Api",
     runtime_deps = [
-        ":api_lib",
+        ":raven_lib",
     ],
 )
+
+#java_test(
+#    name = "test",
+#    size = "small",
+#    runtime_deps = [
+#        "//:raven_test_lib"
+#    ]
+#)

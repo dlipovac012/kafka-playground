@@ -1,6 +1,6 @@
 package entities;
 
-public interface IUser {
+public interface User {
     boolean isPasswordValid();
 
     String getName();
