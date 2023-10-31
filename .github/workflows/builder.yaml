@@ -13,18 +13,13 @@
             distribution: 'zulu'
             java-version: '17'
         - uses: bazelbuild/setup-bazelisk@v2
-        - name: Mount bazel cache  # Optional
+        - name: Mount bazel cache
           uses: actions/cache@v3
           with:
             path: "~/.cache/bazel"
             key: bazel
         - run: |
             bazel build //...
-#        - uses: actions/upload-artifact@v3
-#          with:
-#            name: external-dependencies
-#            path: bazel-bin/*
-#            retention-days: 1
     test:
       name: tester
       runs-on: ubuntu-22.04
@@ -35,7 +30,7 @@
             distribution: 'zulu'
             java-version: '17'
         - uses: bazelbuild/setup-bazelisk@v2
-        - name: Mount bazel cache  # Optional
+        - name: Mount bazel cache
           uses: actions/cache@v3
           with:
             path: "~/.cache/bazel"
@@ -43,6 +38,3 @@
         - run: |
             bazel test //...
       needs: [ build ]
-  #        - uses: actions/download-artifact@v3
-#            with:
-#              name: build-files
