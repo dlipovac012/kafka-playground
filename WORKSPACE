@@ -21,7 +21,7 @@ go_rules_dependencies()
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains")
 
-go_register_toolchains(version = "1.20.3")
+go_register_toolchains(version = "1.20.5")
 
 http_archive(
     name = "bazel_gazelle",

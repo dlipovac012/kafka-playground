@@ -6,6 +6,7 @@ java_library(
     resources = [
         "//raven/src/main/resources:application",
     ],
+    visibility = ["//visibility:private"],
     deps = [
         "@maven//:com_zaxxer_HikariCP",
         "@maven//:org_springframework_boot_spring_boot",
@@ -19,18 +20,17 @@ java_library(
         "@maven//:org_springframework_spring_test",
         "@maven//:org_springframework_spring_web",
     ],
-    visibility = ["//visibility:private"]
 )
 
 java_library(
     name = "raven_test_lib",
+    testonly = True,
     srcs = glob(["src/test/**/*.java"]),
+    visibility = ["//visibility:private"],
     deps = [
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_slf4j_slf4j_simple",
     ],
-    testonly = True,
-    visibility = ["//visibility:private"],
 )
 
 java_binary(

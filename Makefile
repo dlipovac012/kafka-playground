@@ -1,3 +1,5 @@
+.PHONY: build test clean
+
 build:
 	bazel build //...
 

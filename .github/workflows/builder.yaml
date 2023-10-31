@@ -19,7 +19,7 @@
             path: "~/.cache/bazel"
             key: bazel
         - run: |
-            bazel build //...
+            make build
     test:
       name: tester
       runs-on: ubuntu-22.04
@@ -36,5 +36,5 @@
             path: "~/.cache/bazel"
             key: bazel
         - run: |
-            bazel test //...
+            make test
       needs: [ build ]
