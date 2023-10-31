@@ -23,5 +23,5 @@
         - uses: actions/upload-artifact@v3
           with:
             name: build-files
-            path: bazel-bin/*
+            path: bazel-bin/raven/run_local
             retention-days: 1
