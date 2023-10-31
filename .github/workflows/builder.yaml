@@ -19,8 +19,8 @@
             path: "~/.cache/bazel"
             key: bazel
         - run: |
-            make build &&
-            make build
+            bazel build //...
+            bazel test //...
 #    test:
 #      name: tester
 #      runs-on: ubuntu-22.04
