@@ -19,4 +19,9 @@
 #            path: "~/.cache/bazel"
 #            key: bazel
         - run: > 
-            bazel build //... && bazel test //...
+            bazel build //...
+        - uses: actions/upload-artifact@v3
+          with:
+            name: build-files
+            path: bazel-bin/*
+            retention-days: 1
