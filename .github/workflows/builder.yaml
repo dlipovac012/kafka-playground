@@ -37,7 +37,7 @@
         - uses: bazelbuild/setup-bazelisk@v2
         - run: |
             ls -la
-      needs: [ builder ]
+      needs: [ build ]
   #        - uses: actions/download-artifact@v3
 #            with:
 #              name: build-files
