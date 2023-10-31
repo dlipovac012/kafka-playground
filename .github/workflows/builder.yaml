@@ -20,11 +20,11 @@
 #            key: bazel
         - run: |
             bazel build //...
-#        - uses: actions/upload-artifact@v3
-#          with:
-#            name: external-dependencies
-#            path: bazel-bin/external/*
-#            retention-days: 1
+        - uses: actions/upload-artifact@v3
+          with:
+            name: external-dependencies
+            path: bazel-bin/external/*
+            retention-days: 1
     test:
       name: tester
       runs-on: ubuntu-22.04
@@ -35,6 +35,9 @@
             distribution: 'zulu'
             java-version: '17'
         - uses: bazelbuild/setup-bazelisk@v2
+        - uses: actions/download-artifact@v3
+          with:
+            name: external-dependencies
         - run: |
             bazel test //...
       needs: [ build ]
