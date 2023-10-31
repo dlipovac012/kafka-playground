@@ -20,6 +20,7 @@
             key: bazel
         - run: |
             bazel build //...
+        - run: |
             bazel test //...
 #    test:
 #      name: tester
