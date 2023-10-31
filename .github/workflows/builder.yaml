@@ -23,7 +23,7 @@
         - uses: actions/upload-artifact@v3
           with:
             name: external-dependencies
-            path: bazel-bin/external/*
+            path: bazel-bin/*
             retention-days: 1
     test:
       name: tester
