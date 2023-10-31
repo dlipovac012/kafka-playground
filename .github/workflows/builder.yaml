@@ -4,7 +4,7 @@
   on: [ push ]
   jobs:
     build:
-      name: build_and_test
+      name: builder
       runs-on: ubuntu-22.04
       steps:
         - uses: actions/checkout@v4
@@ -18,10 +18,26 @@
 #          with:
 #            path: "~/.cache/bazel"
 #            key: bazel
-        - run: > 
+        - run: |
             bazel build //...
         - uses: actions/upload-artifact@v3
           with:
             name: build-files
             path: bazel-bin/raven/run_local
             retention-days: 1
+    test:
+      name: tester
+      runs-on: ubuntu-22.04
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-java@v3
+          with:
+            distribution: 'zulu'
+            java-version: '17'
+        - uses: bazelbuild/setup-bazelisk@v2
+        - run: |
+            ls -la
+      needs: [ builder ]
+  #        - uses: actions/download-artifact@v3
+#            with:
+#              name: build-files
