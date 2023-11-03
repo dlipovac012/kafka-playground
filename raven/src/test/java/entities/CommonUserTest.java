@@ -1,12 +1,17 @@
 package entities;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-//import org.junit.Test;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CommonUserTest {
+@SpringBootTest
+class CommonUserTest {
 
-//    @Test
-//    public assertCommonUser() {
-//
-//    }
+    @Test
+    @DisplayName("1 + 1 = 2")
+    void testCommonUser() {
+        assertThat(2).isEqualTo(1 + 1);
+    }
 }

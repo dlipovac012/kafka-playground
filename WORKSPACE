@@ -66,6 +66,11 @@ RULES_JVM_EXTERNAL_TAG = "4.5"
 
 RULES_JVM_EXTERNAL_SHA = "b17d7388feb9bfa7f2fa09031b32707df529f26c91ab9e5d909eb1676badd9a6"
 
+JUNIT_JUPITER_VERSION = "5.10.0"
+
+JUNIT_PLATFORM_VERSION = "1.10.0"
+
+
 http_archive(
     name = "rules_jvm_external",
     sha256 = RULES_JVM_EXTERNAL_SHA,
@@ -85,9 +90,17 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 
 maven_install(
     artifacts = [
-        "junit:junit:4.12",
+        "junit:junit:4.13.2",
         "org.slf4j:slf4j-api:2.0.9",
         "org.slf4j:slf4j-simple:2.0.9",
+        "org.hamcrest:hamcrest:2.2",
+        "org.assertj:assertj-core:3.24.2",
+        "org.junit.platform:junit-platform-launcher:%s" % JUNIT_PLATFORM_VERSION,
+        "org.junit.platform:junit-platform-reporting:%s" % JUNIT_PLATFORM_VERSION,
+        "org.junit.jupiter:junit-jupiter-api:%s" % JUNIT_JUPITER_VERSION,
+        "org.junit.jupiter:junit-jupiter-params:%s" % JUNIT_JUPITER_VERSION,
+        "org.junit.jupiter:junit-jupiter-engine:%s" % JUNIT_JUPITER_VERSION,
+        "org.junit.vintage:junit-vintage-engine:%s" % JUNIT_JUPITER_VERSION,
 
         # HikariCP JDBC
         "com.zaxxer:HikariCP:5.0.1",
@@ -113,3 +126,28 @@ maven_install(
 
 load("@maven//:defs.bzl", "pinned_maven_install")
 pinned_maven_install()
+
+
+###
+#   JUnit 5
+##
+
+CONTRIB_RULES_JVM_VERSION = "0.19.0"
+
+CONTRIB_RULES_JVM_SHA = "4d62589dc6a55e74bbe33930b826d593367fc777449a410604b2ad7c6c625ef7"
+
+http_archive(
+    name = "contrib_rules_jvm",
+    sha256 = CONTRIB_RULES_JVM_SHA,
+    strip_prefix = "rules_jvm-%s" % CONTRIB_RULES_JVM_VERSION,
+    url = "https://github.com/bazel-contrib/rules_jvm/archive/refs/tags/v%s.tar.gz" % CONTRIB_RULES_JVM_VERSION,
+)
+
+load("@contrib_rules_jvm//:repositories.bzl", "contrib_rules_jvm_deps")
+
+contrib_rules_jvm_deps()
+
+# Now ensure that the downloaded deps are properly configured
+load("@contrib_rules_jvm//:setup.bzl", "contrib_rules_jvm_setup")
+
+contrib_rules_jvm_setup()
