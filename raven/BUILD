@@ -1,5 +1,4 @@
 load("@rules_java//java:defs.bzl", "java_binary")
-load("@rules_jvm_external//:defs.bzl", "artifact")
 load("//bazel:junit5.bzl", "java_junit5_test")
 
 java_library(
