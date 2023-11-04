@@ -23,7 +23,7 @@ java_library(
 
 java_binary(
     name = "run_local",
-    main_class = "api.Api",
+    main_class = "controllers.Api",
     runtime_deps = [
         ":raven_lib",
     ],

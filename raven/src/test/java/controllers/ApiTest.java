@@ -1,4 +1,4 @@
-package api;
+package controllers;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import java.net.http.HttpResponse;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SuiteDisplayName("API testing")
-@SelectPackages("api")
+@SelectPackages("controllers")
 public class ApiTest {
 
     @Test
