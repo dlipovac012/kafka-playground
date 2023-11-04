@@ -90,17 +90,14 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 
 maven_install(
     artifacts = [
-        "junit:junit:4.13.2",
         "org.slf4j:slf4j-api:2.0.9",
         "org.slf4j:slf4j-simple:2.0.9",
         "org.hamcrest:hamcrest:2.2",
         "org.assertj:assertj-core:3.24.2",
-        "org.junit.platform:junit-platform-launcher:%s" % JUNIT_PLATFORM_VERSION,
-        "org.junit.platform:junit-platform-reporting:%s" % JUNIT_PLATFORM_VERSION,
+        "org.junit.platform:junit-platform-console:%s" % JUNIT_PLATFORM_VERSION,
         "org.junit.jupiter:junit-jupiter-api:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-params:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-engine:%s" % JUNIT_JUPITER_VERSION,
-        "org.junit.vintage:junit-vintage-engine:%s" % JUNIT_JUPITER_VERSION,
 
         # HikariCP JDBC
         "com.zaxxer:HikariCP:5.0.1",
@@ -108,13 +105,10 @@ maven_install(
         # Spring Boot
         "org.springframework.boot:spring-boot-starter:3.1.5",
         "org.springframework.boot:spring-boot-autoconfigure:3.1.5",
-        "org.springframework.boot:spring-boot-test-autoconfigure:3.1.5",
-        "org.springframework.boot:spring-boot-test:3.1.5",
         "org.springframework.boot:spring-boot:3.1.5",
         "org.springframework.boot:spring-boot-starter-web:3.1.5",
         "org.springframework:spring-beans:6.0.13",
         "org.springframework:spring-context:6.0.13",
-        "org.springframework:spring-test:6.0.13",
         "org.springframework:spring-web:6.0.13",
     ],
     repositories = [
@@ -126,28 +120,3 @@ maven_install(
 
 load("@maven//:defs.bzl", "pinned_maven_install")
 pinned_maven_install()
-
-
-###
-#   JUnit 5
-##
-
-CONTRIB_RULES_JVM_VERSION = "0.19.0"
-
-CONTRIB_RULES_JVM_SHA = "4d62589dc6a55e74bbe33930b826d593367fc777449a410604b2ad7c6c625ef7"
-
-http_archive(
-    name = "contrib_rules_jvm",
-    sha256 = CONTRIB_RULES_JVM_SHA,
-    strip_prefix = "rules_jvm-%s" % CONTRIB_RULES_JVM_VERSION,
-    url = "https://github.com/bazel-contrib/rules_jvm/archive/refs/tags/v%s.tar.gz" % CONTRIB_RULES_JVM_VERSION,
-)
-
-load("@contrib_rules_jvm//:repositories.bzl", "contrib_rules_jvm_deps")
-
-contrib_rules_jvm_deps()
-
-# Now ensure that the downloaded deps are properly configured
-load("@contrib_rules_jvm//:setup.bzl", "contrib_rules_jvm_setup")
-
-contrib_rules_jvm_setup()

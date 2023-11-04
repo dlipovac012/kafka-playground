@@ -12,7 +12,7 @@ public class Api {
 
     @RequestMapping("/healthcheck")
     String healthcheck() {
-        return "Hello from API!!!";
+        return "ok";
     }
 
     public static void main(String[] args) {

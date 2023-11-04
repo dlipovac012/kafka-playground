@@ -1,6 +1,6 @@
 load("@rules_java//java:defs.bzl", "java_binary")
 load("@rules_jvm_external//:defs.bzl", "artifact")
-load("@contrib_rules_jvm//java:defs.bzl", "JUNIT5_DEPS", "java_test_suite")
+load("//bazel:junit5.bzl", "java_junit5_test")
 
 java_library(
     name = "raven_lib",
@@ -29,24 +29,12 @@ java_binary(
     ],
 )
 
-
-java_test_suite(
-    name = "unit_test",
-    srcs = glob(["src/test/java/**/*.java"]),
-    runner = "junit5",
-    test_suffixes = ["Test.java"],
-    runtime_deps = JUNIT5_DEPS,
+java_junit5_test(
+    name = "test",
+    srcs = ["src/test/java/entities/CommonUserTest.java"],
+    test_package = "entities",
     deps = [
-        ":raven_lib",
         "@maven//:org_hamcrest_hamcrest",
         "@maven//:org_assertj_assertj_core",
-        "@maven//:org_junit_jupiter_junit_jupiter_api",
-        "@maven//:org_junit_jupiter_junit_jupiter_params",
-        "@maven//:org_junit_jupiter_junit_jupiter_engine",
-        "@maven//:org_junit_vintage_junit_vintage_engine",
-        "@maven//:org_junit_platform_junit_platform_launcher",
-        "@maven//:org_springframework_spring_test",
-        "@maven//:org_springframework_boot_spring_boot_test",
-        "@maven//:org_springframework_boot_spring_boot_test_autoconfigure",
     ],
 )
