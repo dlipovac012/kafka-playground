@@ -95,6 +95,7 @@ maven_install(
         "org.hamcrest:hamcrest:2.2",
         "org.assertj:assertj-core:3.24.2",
         "org.junit.platform:junit-platform-console:%s" % JUNIT_PLATFORM_VERSION,
+        "org.junit.platform:junit-platform-suite-api:%s" % JUNIT_PLATFORM_VERSION,
         "org.junit.jupiter:junit-jupiter-api:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-params:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-engine:%s" % JUNIT_JUPITER_VERSION,

@@ -7,7 +7,7 @@ build:
 	bazel build //...
 
 test:
-	bazel test //... --sandbox_debug
+	bazel test //...
 
 clean:
 	bazel clean

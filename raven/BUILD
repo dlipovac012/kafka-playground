@@ -31,7 +31,7 @@ java_binary(
 
 java_junit5_test(
     name = "test",
-    srcs = ["src/test/java/entities/CommonUserTest.java"],
+    srcs = glob(["src/test/java/**/*.java"]),
     test_package = "entities",
     deps = [
         "@maven//:org_hamcrest_hamcrest",
