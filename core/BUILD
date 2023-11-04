@@ -7,7 +7,7 @@ java_binary(
     srcs = glob(["src/main/**/*.java"]),
     main_class = "core.App",
     deps = [
-#        "@maven//:junit_junit",
+        #        "@maven//:junit_junit",
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_slf4j_slf4j_simple",
     ],

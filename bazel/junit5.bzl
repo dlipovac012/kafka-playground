@@ -23,12 +23,12 @@ def java_junit5_test(name, srcs, test_package, deps = [], runtime_deps = [], **k
         args = junit_console_args,
         deps = deps + [
             "@maven//:org_junit_platform_junit_platform_suite_api",
-             "@maven//:org_junit_jupiter_junit_jupiter_api",
-             "@maven//:org_junit_jupiter_junit_jupiter_params",
-             "@maven//:org_junit_jupiter_junit_jupiter_engine",
+            "@maven//:org_junit_jupiter_junit_jupiter_api",
+            "@maven//:org_junit_jupiter_junit_jupiter_params",
+            "@maven//:org_junit_jupiter_junit_jupiter_engine",
         ],
         runtime_deps = runtime_deps + [
-             "@maven//:org_junit_platform_junit_platform_console",
+            "@maven//:org_junit_platform_junit_platform_console",
         ],
         **kwargs
     )

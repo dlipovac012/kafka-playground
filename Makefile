@@ -9,5 +9,8 @@ build:
 test:
 	bazel test //...
 
+run:
+	bazel run //raven:run_local
+
 clean:
 	bazel clean

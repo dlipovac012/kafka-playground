@@ -70,7 +70,6 @@ JUNIT_JUPITER_VERSION = "5.10.0"
 
 JUNIT_PLATFORM_VERSION = "1.10.0"
 
-
 http_archive(
     name = "rules_jvm_external",
     sha256 = RULES_JVM_EXTERNAL_SHA,
@@ -99,6 +98,7 @@ maven_install(
         "org.junit.jupiter:junit-jupiter-api:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-params:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-engine:%s" % JUNIT_JUPITER_VERSION,
+        "com.google.code.gson:gson:2.10.1",
 
         # HikariCP JDBC
         "com.zaxxer:HikariCP:5.0.1",
@@ -112,12 +112,13 @@ maven_install(
         "org.springframework:spring-context:6.0.13",
         "org.springframework:spring-web:6.0.13",
     ],
+    maven_install_json = "//:bazel/maven_install.json",
     repositories = [
         "https://maven.google.com",
         "https://repo1.maven.org/maven2",
     ],
-    maven_install_json = "//:bazel/maven_install.json",
 )
 
 load("@maven//:defs.bzl", "pinned_maven_install")
+
 pinned_maven_install()

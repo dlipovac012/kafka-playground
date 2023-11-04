@@ -9,6 +9,7 @@ java_library(
     ],
     visibility = ["//visibility:private"],
     deps = [
+        "@maven//:com_google_code_gson_gson",
         "@maven//:com_zaxxer_HikariCP",
         "@maven//:org_springframework_boot_spring_boot",
         "@maven//:org_springframework_boot_spring_boot_autoconfigure",
@@ -29,11 +30,21 @@ java_binary(
 )
 
 java_junit5_test(
-    name = "test",
+    name = "api_test",
+    srcs = glob(["src/test/java/**/*.java"]),
+    test_package = "api",
+    deps = [
+        "@maven//:org_assertj_assertj_core",
+        "@maven//:org_hamcrest_hamcrest",
+    ],
+)
+
+java_junit5_test(
+    name = "entities_test",
     srcs = glob(["src/test/java/**/*.java"]),
     test_package = "entities",
     deps = [
-        "@maven//:org_hamcrest_hamcrest",
         "@maven//:org_assertj_assertj_core",
+        "@maven//:org_hamcrest_hamcrest",
     ],
 )
