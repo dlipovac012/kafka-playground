@@ -1,5 +1,5 @@
 load("@rules_java//java:defs.bzl", "java_binary")
-load("//bazel:junit5.bzl", "java_junit5_test")
+
 
 java_library(
     name = "api_lib",
@@ -31,30 +31,3 @@ java_binary(
     ],
 )
 
-java_junit5_test(
-    name = "api_tests",
-    srcs = glob(["src/test/java/**/*.java"]),
-    test_package = "dev.dalibor.kafka_playground",
-    deps = [
-        "@maven//:org_assertj_assertj_core",
-        "@maven//:org_hamcrest_hamcrest",
-        "@maven//:org_apache_httpcomponents_client5_httpclient5",
-        "@maven//:org_apache_httpcomponents_core5_httpcore5",
-        "@maven//:com_fasterxml_jackson_core_jackson_databind",
-        "@maven//:com_fasterxml_jackson_core_jackson_core",
-    ],
-)
-
-java_junit5_test(
-    name = "entities_tests",
-    srcs = glob(["src/test/java/**/*.java"]),
-    test_package = "entities",
-    deps = [
-        "@maven//:org_assertj_assertj_core",
-        "@maven//:org_hamcrest_hamcrest",
-        "@maven//:org_apache_httpcomponents_client5_httpclient5",
-        "@maven//:org_apache_httpcomponents_core5_httpcore5",
-        "@maven//:com_fasterxml_jackson_core_jackson_databind",
-        "@maven//:com_fasterxml_jackson_core_jackson_core",
-    ],
-)

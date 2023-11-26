@@ -1,4 +1,4 @@
-package dev.dalibor.kafka_playground.utils;
+package dev.dalibor.kafka_playground.integration_tests.utilities;
 
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;

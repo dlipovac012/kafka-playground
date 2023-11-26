@@ -9,6 +9,9 @@ build:
 test:
 	bazel test --test_output=all --notest_keep_going --cache_test_results=no //...
 
+integration-tests:
+	bazel test --test_output=all --cache_test_results=no //integration-tests/...
+
 run:
 	bazel run //api:run_local
 
