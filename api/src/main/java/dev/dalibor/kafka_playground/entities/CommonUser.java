@@ -1,4 +1,4 @@
-package entities;
+package dev.dalibor.kafka_playground.entities;
 
 
 public class CommonUser implements User {

@@ -1,4 +1,4 @@
-package entities;
+package dev.dalibor.kafka_playground.entities;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +9,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SuiteDisplayName("CommonUserTest")
-@SelectPackages("entities")
+@SelectPackages("dev.dalibor.kafka_playground.entities")
 class CommonUserTest {
 
     @BeforeAll

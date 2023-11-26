@@ -7,10 +7,13 @@ build:
 	bazel build //...
 
 test:
-	bazel test //...
+	bazel test --test_output=all --notest_keep_going --cache_test_results=no //...
 
 run:
-	bazel run //raven:run_local
+	bazel run //api:run_local
+
+pin:
+	bazel run @unpinned_maven//:pin
 
 clean:
 	bazel clean

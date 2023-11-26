@@ -91,6 +91,15 @@ maven_install(
     artifacts = [
         "org.slf4j:slf4j-api:2.0.9",
         "org.slf4j:slf4j-simple:2.0.9",
+        "com.google.code.gson:gson:2.10.1",
+        "org.apache.httpcomponents.client5:httpclient5:5.2.2",
+        "org.apache.httpcomponents.core5:httpcore5:5.2.2",
+        "com.fasterxml.jackson.core:jackson-databind:2.16.0",
+        "com.fasterxml.jackson.core:jackson-core:2.16.0",
+        "com.fasterxml.jackson.core:jackson-annotations:2.16.0",
+
+        # JUnit5, Assertions & Helpers
+        "org.apache.httpcomponents.client5:httpclient5-testing:5.2.2",
         "org.hamcrest:hamcrest:2.2",
         "org.assertj:assertj-core:3.24.2",
         "org.junit.platform:junit-platform-console:%s" % JUNIT_PLATFORM_VERSION,
@@ -98,7 +107,6 @@ maven_install(
         "org.junit.jupiter:junit-jupiter-api:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-params:%s" % JUNIT_JUPITER_VERSION,
         "org.junit.jupiter:junit-jupiter-engine:%s" % JUNIT_JUPITER_VERSION,
-        "com.google.code.gson:gson:2.10.1",
 
         # HikariCP JDBC
         "com.zaxxer:HikariCP:5.0.1",
