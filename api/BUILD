@@ -9,6 +9,9 @@ java_library(
     ],
     visibility = ["//visibility:private"],
     deps = [
+#        "@maven//:org_slf4j_slf4j_api",
+#        "@maven//:org_slf4j_slf4j_simple",
+        "@maven//:org_slf4j_slf4j_api",
         "@maven//:com_google_code_gson_gson",
         "@maven//:com_zaxxer_HikariCP",
         "@maven//:org_springframework_boot_spring_boot",

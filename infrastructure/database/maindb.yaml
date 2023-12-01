@@ -1,0 +1,100 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: maindb
+spec:
+  ports:
+    - protocol: TCP
+      port: 3306
+  selector:
+    app: mysql
+  type: LoadBalancer
+  # loadBalancerIP: 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0.35
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3306
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        env:
+         - name: MYSQL_DATABASE
+           value: maindb
+         - name: MYSQL_USER
+           value: admin
+         - name: MYSQL_PASSWORD
+           value: secret
+         - name: MYSQL_ROOT_PASSWORD
+           value: toor
+      #   volumeMounts:
+      #   - name: maindb-persistent-storage
+      #     mountPath: /var/lib/mysql
+      # volumes:
+      #   - name: maindb-persistent-storage
+      #     persistentVolumeClaim:
+      #       claimName: maindb-pv-claim
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: mysql
+# spec:
+#   ports:
+#   - port: 3306
+#   selector:
+#     app: mysql
+#   clusterIP: None
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: mysql
+# spec:
+#   selector:
+#     matchLabels:
+#       app: mysql
+#   strategy:
+#     type: Recreate
+#   template:
+#     metadata:
+#       labels:
+#         app: mysql
+#     spec:
+#       containers:
+#       - image: mysql:5.6
+#         name: mysql
+#         env:
+#           # Use secret in real usage
+#         - name: MYSQL_ROOT_PASSWORD
+#           value: password
+#         ports:
+#         - containerPort: 3306
+#           name: mysql
+#         volumeMounts:
+#         - name: mysql-persistent-storage
+#           mountPath: /var/lib/mysql
+#       volumes:
+#       - name: mysql-persistent-storage
+#         persistentVolumeClaim:
+#           claimName: mysql-pv-claim

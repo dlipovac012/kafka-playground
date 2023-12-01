@@ -14,6 +14,11 @@ Currently, in use:
 ### Cheatsheet:
 
 - To update `maven_install.json`, run:
-```
+```bash
 bazel run @unpinned_maven//:pin
+```
+
+### Setting `kubectl` context to minikube
+```bash
+kubectl config use-context docker-desktop
 ```
