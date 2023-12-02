@@ -15,13 +15,9 @@ public class Api {
     private DLogger logger;
 
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(Api.class);
         ConfigurableApplicationContext context = SpringApplication.run(Api.class, args);
         BasicLogger consoleLogger = context.getBean(BasicLogger.class);
 
         consoleLogger.consoleInfo("Hello");
-
-//        app.setBannerMode(Banner.Mode.OFF);
-//        app.run(args);
     }
 }

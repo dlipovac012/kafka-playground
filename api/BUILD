@@ -1,4 +1,5 @@
 load("@rules_java//java:defs.bzl", "java_binary")
+#load("@io_bazel_rules_docker//java:image.bzl", "java_image")
 
 
 java_library(
@@ -9,9 +10,8 @@ java_library(
     ],
     visibility = ["//visibility:private"],
     deps = [
-#        "@maven//:org_slf4j_slf4j_api",
-#        "@maven//:org_slf4j_slf4j_simple",
         "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_slf4j_slf4j_simple",
         "@maven//:com_google_code_gson_gson",
         "@maven//:com_zaxxer_HikariCP",
         "@maven//:org_springframework_boot_spring_boot",
@@ -34,3 +34,11 @@ java_binary(
     ],
 )
 
+
+#java_image(
+#    name = "java_image",
+#    srcs = ["Binary.java"],
+#    # Put these runfiles into their own layer.
+#    layers = [":java_image_library"],
+#    main_class = "examples.images.Binary",
+#)

@@ -17,8 +17,6 @@ public class KafkaController {
     @Autowired
     private DLogger logger;
 
-//    Logger logger = LoggerFactory.getLogger(KafkaController.class);
-
     @GetMapping("topics")
     public ResponseEntity<List<String>> getAllTopics() {
         List<String> topics = new ArrayList<>();
